@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA6509B0-AA2C-49CE-83EB-716C5B5CE8BE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RuralAdjuster</RootNamespace>
+    <AssemblyName>RuralAdjuster</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModel\Evaluation.cs" />
+    <Compile Include="DataModel\Operations.cs" />
+    <Compile Include="DataModel\Reports\Report.cs" />
+    <Compile Include="DataModel\Reports\RouteBoxReport.cs" />
+    <Compile Include="DataModel\Reports\RouteSchemeReport.cs" />
+    <Compile Include="DataModel\Reports\RouteStatusReport.cs" />
+    <Compile Include="DataModel\Reports\ZoneDetailReport.cs" />
+    <Compile Include="DataModel\Reports\ZoneSchemeReport.cs" />
+    <Compile Include="DataModel\Reports\ZoneStatusReport.cs" />
+    <Compile Include="DataModel\Route.cs" />
+    <Compile Include="DataModel\SchemeEntry.cs" />
+    <Compile Include="DataModel\Segment.cs" />
+    <Compile Include="DataModel\Zone.cs" />
+    <Compile Include="Forms\PickRouteNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PickRouteNumber.Designer.cs">
+      <DependentUpon>PickRouteNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PickZipcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PickZipcode.Designer.cs">
+      <DependentUpon>PickZipcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RouteEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\RouteEdit.Designer.cs">
+      <DependentUpon>RouteEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RouteModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RouteModal.Designer.cs">
+      <DependentUpon>RouteModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RouteStatusLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\RouteStatusLine.Designer.cs">
+      <DependentUpon>RouteStatusLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SchemeEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SchemeEdit.Designer.cs">
+      <DependentUpon>SchemeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SegmentEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SegmentEdit.Designer.cs">
+      <DependentUpon>SegmentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SegmentModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SegmentModal.Designer.cs">
+      <DependentUpon>SegmentModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SegmentQuickEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SegmentQuickEdit.Designer.cs">
+      <DependentUpon>SegmentQuickEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utility.cs" />
+    <Compile Include="Forms\ZoneEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ZoneEdit.Designer.cs">
+      <DependentUpon>ZoneEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\PickRouteNumber.resx">
+      <DependentUpon>PickRouteNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PickZipcode.resx">
+      <DependentUpon>PickZipcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RouteEdit.resx">
+      <DependentUpon>RouteEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RouteModal.resx">
+      <DependentUpon>RouteModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RouteStatusLine.resx">
+      <DependentUpon>RouteStatusLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SchemeEdit.resx">
+      <DependentUpon>SchemeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SegmentEdit.resx">
+      <DependentUpon>SegmentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SegmentModal.resx">
+      <DependentUpon>SegmentModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SegmentQuickEdit.resx">
+      <DependentUpon>SegmentQuickEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZoneEdit.resx">
+      <DependentUpon>ZoneEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
