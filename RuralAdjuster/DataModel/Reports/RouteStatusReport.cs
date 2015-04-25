@@ -32,9 +32,10 @@ namespace RuralAdjuster.DataModel.Reports
                 Route.ParcelLockers,
                 Route.Dismounts,
                 Route.DismountDistance);
-            builder.AppendFormat("Miles:{0} Locked Pouch Stops: {1}\r\n\r\n",
+            builder.AppendFormat("SA: {2} Miles:{0} Locked Pouch Stops: {1}\r\n\r\n",
                 Route.PreMiles,
-                Route.LockedPouchStops);
+                Route.LockedPouchStops,
+                Route.SuitableAllowance);
 
             builder.Append("Pre-adjustment Segments");
             foreach (var Segment in Route.PreSegments)

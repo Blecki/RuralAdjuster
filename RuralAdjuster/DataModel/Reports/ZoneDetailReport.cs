@@ -28,9 +28,10 @@ namespace RuralAdjuster.DataModel.Reports
 
             foreach (var Route in Zone.Routes)
             {
+                builder.AppendFormat("*** ROUTE {0} ***\r\n\r\n", Route.Number);
                 RouteStatus.Route = Route;
                 builder.Append(RouteStatus.Run());
-                builder.Append("\r\n");
+                builder.Append("\r\n\r\n");
             }
 
             builder.Append(Scheme.Run());

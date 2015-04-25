@@ -15,6 +15,7 @@ namespace RuralAdjuster.DataModel.Reports
             public int ParcelLockers;
             public int Dismounts;
             public int DismountDistance;
+            public float VolumeFactor;
         }
 
         public Route Route;
@@ -27,6 +28,8 @@ namespace RuralAdjuster.DataModel.Reports
         public override String Run()
         {
             var accumulator = new Dictionary<String, BoxEntry>();
+            var newMileage = 0.0f;
+
             var baseEntry = new BoxEntry
             {
                 RegularBoxes = Route.RegularBoxes,
@@ -34,9 +37,11 @@ namespace RuralAdjuster.DataModel.Reports
                 CollectionSlots = Route.CollectionSlots,
                 ParcelLockers = Route.ParcelLockers,
                 Dismounts = Route.Dismounts,
-                DismountDistance = Route.DismountDistance
+                DismountDistance = Route.DismountDistance,
+                VolumeFactor = Route.BoxFactor
             };
             accumulator.Add(Route.ToString(), baseEntry);
+            newMileage += Route.PreMiles;
 
             foreach (var Segment in Route.PreSegments)
             {
@@ -48,6 +53,7 @@ namespace RuralAdjuster.DataModel.Reports
                     baseEntry.ParcelLockers -= Segment.ParcelLockers;
                     baseEntry.Dismounts -= Segment.Dismounts;
                     baseEntry.DismountDistance -= Segment.DismountDistance;
+                    newMileage -= Segment.Miles;
                 }
             }
 
@@ -61,6 +67,7 @@ namespace RuralAdjuster.DataModel.Reports
                     else
                     {
                         addTo = new BoxEntry();
+                        addTo.VolumeFactor = Segment.SourceRoute.BoxFactor;
                         accumulator.Add(Segment.SourceRoute.ToString(), addTo);
                     }
 
@@ -70,6 +77,7 @@ namespace RuralAdjuster.DataModel.Reports
                     addTo.ParcelLockers += Segment.ParcelLockers;
                     addTo.Dismounts += Segment.Dismounts;
                     addTo.DismountDistance += Segment.DismountDistance;
+                    newMileage += Segment.Miles;
                 }
             }
 
@@ -89,14 +97,18 @@ namespace RuralAdjuster.DataModel.Reports
             var builder = new StringBuilder();
             builder.AppendFormat("R{0:000} Box Report", Route.Number);
             foreach (var entry in accumulator)
-                builder.AppendFormat("\r\n{0} RB:{1,4:####} CB:{2,4:####} CS:{3,3:####} PL:{4,3:####} DISMOUNT:{5,3:###} DISTANCE:{6}",
+                builder.AppendFormat("\r\n{0} TB:{7,4:####} VF:{8} RB:{1,4:####} CB:{2,4:####} CS:{3,3:####} PL:{4,3:####} DISMOUNT:{5,3:###} DISTANCE:{6}",
                     entry.Key,
                     entry.Value.RegularBoxes,
                     entry.Value.CentralizedBoxes,
                     entry.Value.CollectionSlots,
                     entry.Value.ParcelLockers,
                     entry.Value.Dismounts,
-                    entry.Value.DismountDistance);
+                    entry.Value.DismountDistance,
+                    entry.Value.RegularBoxes + entry.Value.CentralizedBoxes,
+                    entry.Value.VolumeFactor);
+
+            builder.AppendFormat("\r\nPOST MILES: {0}", newMileage);
 
             return builder.ToString();
         }

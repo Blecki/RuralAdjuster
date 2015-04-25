@@ -30,7 +30,9 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.GroupBox();
+            this.bDeleteSelected = new System.Windows.Forms.Button();
             this.bRouteSummary = new System.Windows.Forms.Button();
+            this.bNewSegment = new System.Windows.Forms.Button();
             this.bSchemeReport = new System.Windows.Forms.Button();
             this.cbLStatus = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -64,12 +66,13 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pPreSegments = new System.Windows.Forms.Panel();
-            this.bDeleteSelected = new System.Windows.Forms.Button();
-            this.bNewSegment = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pPostSegments = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbBoxReport = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.tbSuitableAllowance = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -84,6 +87,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -103,12 +107,13 @@
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.splitContainer1.Size = new System.Drawing.Size(861, 513);
+            this.splitContainer1.Size = new System.Drawing.Size(861, 571);
             this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox6);
             this.panel1.Controls.Add(this.bDeleteSelected);
             this.panel1.Controls.Add(this.bRouteSummary);
             this.panel1.Controls.Add(this.bNewSegment);
@@ -124,14 +129,24 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(224, 513);
+            this.panel1.Size = new System.Drawing.Size(224, 571);
             this.panel1.TabIndex = 5;
             this.panel1.TabStop = false;
             this.panel1.Text = "Pre-Adjustment Data";
             // 
+            // bDeleteSelected
+            // 
+            this.bDeleteSelected.Location = new System.Drawing.Point(110, 500);
+            this.bDeleteSelected.Name = "bDeleteSelected";
+            this.bDeleteSelected.Size = new System.Drawing.Size(106, 23);
+            this.bDeleteSelected.TabIndex = 22;
+            this.bDeleteSelected.Text = "Delete Selected";
+            this.bDeleteSelected.UseVisualStyleBackColor = true;
+            this.bDeleteSelected.Click += new System.EventHandler(this.bDeleteSelected_Click);
+            // 
             // bRouteSummary
             // 
-            this.bRouteSummary.Location = new System.Drawing.Point(5, 448);
+            this.bRouteSummary.Location = new System.Drawing.Point(5, 500);
             this.bRouteSummary.Name = "bRouteSummary";
             this.bRouteSummary.Size = new System.Drawing.Size(102, 23);
             this.bRouteSummary.TabIndex = 28;
@@ -139,9 +154,19 @@
             this.bRouteSummary.UseVisualStyleBackColor = true;
             this.bRouteSummary.Click += new System.EventHandler(this.bRouteSummary_Click);
             // 
+            // bNewSegment
+            // 
+            this.bNewSegment.Location = new System.Drawing.Point(110, 471);
+            this.bNewSegment.Name = "bNewSegment";
+            this.bNewSegment.Size = new System.Drawing.Size(106, 23);
+            this.bNewSegment.TabIndex = 21;
+            this.bNewSegment.Text = "Add New Segment";
+            this.bNewSegment.UseVisualStyleBackColor = true;
+            this.bNewSegment.Click += new System.EventHandler(this.button1_Click);
+            // 
             // bSchemeReport
             // 
-            this.bSchemeReport.Location = new System.Drawing.Point(5, 419);
+            this.bSchemeReport.Location = new System.Drawing.Point(5, 471);
             this.bSchemeReport.Name = "bSchemeReport";
             this.bSchemeReport.Size = new System.Drawing.Size(102, 23);
             this.bSchemeReport.TabIndex = 27;
@@ -272,7 +297,7 @@
             this.groupBox1.Controls.Add(this.tbMiles);
             this.groupBox1.Location = new System.Drawing.Point(5, 179);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(211, 234);
+            this.groupBox1.Size = new System.Drawing.Size(211, 235);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Box Counts";
@@ -416,7 +441,7 @@
             // bClose
             // 
             this.bClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bClose.Location = new System.Drawing.Point(141, 487);
+            this.bClose.Location = new System.Drawing.Point(141, 545);
             this.bClose.Name = "bClose";
             this.bClose.Size = new System.Drawing.Size(75, 23);
             this.bClose.TabIndex = 20;
@@ -438,8 +463,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox4);
-            this.splitContainer2.Size = new System.Drawing.Size(630, 413);
-            this.splitContainer2.SplitterDistance = 215;
+            this.splitContainer2.Size = new System.Drawing.Size(630, 471);
+            this.splitContainer2.SplitterDistance = 245;
             this.splitContainer2.TabIndex = 3;
             // 
             // groupBox5
@@ -448,7 +473,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(630, 215);
+            this.groupBox5.Size = new System.Drawing.Size(630, 245);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Pre-Adjustment Segments";
@@ -459,28 +484,8 @@
             this.pPreSegments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pPreSegments.Location = new System.Drawing.Point(3, 16);
             this.pPreSegments.Name = "pPreSegments";
-            this.pPreSegments.Size = new System.Drawing.Size(624, 196);
+            this.pPreSegments.Size = new System.Drawing.Size(624, 226);
             this.pPreSegments.TabIndex = 1;
-            // 
-            // bDeleteSelected
-            // 
-            this.bDeleteSelected.Location = new System.Drawing.Point(110, 448);
-            this.bDeleteSelected.Name = "bDeleteSelected";
-            this.bDeleteSelected.Size = new System.Drawing.Size(106, 23);
-            this.bDeleteSelected.TabIndex = 22;
-            this.bDeleteSelected.Text = "Delete Selected";
-            this.bDeleteSelected.UseVisualStyleBackColor = true;
-            this.bDeleteSelected.Click += new System.EventHandler(this.bDeleteSelected_Click);
-            // 
-            // bNewSegment
-            // 
-            this.bNewSegment.Location = new System.Drawing.Point(110, 419);
-            this.bNewSegment.Name = "bNewSegment";
-            this.bNewSegment.Size = new System.Drawing.Size(106, 23);
-            this.bNewSegment.TabIndex = 21;
-            this.bNewSegment.Text = "Add New Segment";
-            this.bNewSegment.UseVisualStyleBackColor = true;
-            this.bNewSegment.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox4
             // 
@@ -488,7 +493,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(630, 194);
+            this.groupBox4.Size = new System.Drawing.Size(630, 222);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Post-Adjustment Segments";
@@ -499,14 +504,14 @@
             this.pPostSegments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pPostSegments.Location = new System.Drawing.Point(3, 16);
             this.pPostSegments.Name = "pPostSegments";
-            this.pPostSegments.Size = new System.Drawing.Size(624, 175);
+            this.pPostSegments.Size = new System.Drawing.Size(624, 203);
             this.pPostSegments.TabIndex = 3;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tbBoxReport);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(0, 413);
+            this.groupBox3.Location = new System.Drawing.Point(0, 471);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.groupBox3.Size = new System.Drawing.Size(630, 100);
@@ -528,6 +533,34 @@
             this.tbBoxReport.TabIndex = 0;
             this.tbBoxReport.Text = "Box Report";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.tbSuitableAllowance);
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Location = new System.Drawing.Point(5, 417);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(211, 48);
+            this.groupBox6.TabIndex = 20;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Misc";
+            // 
+            // tbSuitableAllowance
+            // 
+            this.tbSuitableAllowance.Location = new System.Drawing.Point(103, 20);
+            this.tbSuitableAllowance.Name = "tbSuitableAllowance";
+            this.tbSuitableAllowance.Size = new System.Drawing.Size(100, 20);
+            this.tbSuitableAllowance.TabIndex = 5;
+            this.tbSuitableAllowance.TextChanged += new System.EventHandler(this.tbSuitableAllowance_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Suitable Allowance";
+            // 
             // RouteEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +568,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "RouteEdit";
             this.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.Size = new System.Drawing.Size(861, 516);
+            this.Size = new System.Drawing.Size(861, 574);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -554,6 +587,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -602,6 +637,9 @@
         private System.Windows.Forms.Button bSchemeReport;
         private System.Windows.Forms.Button bRouteSummary;
         private System.Windows.Forms.TextBox tbBoxReport;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox tbSuitableAllowance;
+        private System.Windows.Forms.Label label2;
 
     }
 }

@@ -30,6 +30,9 @@ namespace RuralAdjuster.DataModel
         public int TargetEvaluation = 2844;
 
         [DataMember]
+        public float SuitableAllowance;
+
+        [DataMember]
         public float BoxFactor;
         [DataMember]
         public LStatus LStatus;

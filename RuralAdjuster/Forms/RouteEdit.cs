@@ -59,6 +59,8 @@ namespace RuralAdjuster.Forms
             tbDismountDistance.Text = Route.DismountDistance.ToString();
             tbLockedPouchStops.Text = Route.LockedPouchStops.ToString();
 
+            tbSuitableAllowance.Text = Route.SuitableAllowance.ToString();
+
             RebuildBoth();
         }
                 
@@ -311,6 +313,14 @@ namespace RuralAdjuster.Forms
             var report = new DataModel.Reports.RouteStatusReport(this.Route);
             var window = new Report(report.Run());
             window.Show();
+        }
+
+        private void tbSuitableAllowance_TextChanged(object sender, EventArgs e)
+        {
+            var newValue = Utility.VerifyFloatTextBox(sender, textboxBackColor);
+            if (newValue.HasValue)
+                this.Route.SuitableAllowance = newValue.Value;
+            tbBoxReport.Text = BoxReport.Run();
         }
     }
 }

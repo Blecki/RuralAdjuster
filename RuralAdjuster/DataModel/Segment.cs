@@ -72,7 +72,7 @@ namespace RuralAdjuster.DataModel
 
         public String DetailedString(String prefix)
         {
-            return String.Format("{7}{0,7:#######} Source:R{8} Destination:R{9} RegBoxes:{1,4:####} CentBoxes:{2,4:####} CSlots:{3,3:###} PLockers:{4,3:###} Dismounts:{5,3:###} Distance:{6,4:####}",
+            return String.Format("{7}{0,7:#######} {10} Source:R{8} Destination:R{9} RegBoxes:{1,4:####} CentBoxes:{2,4:####} CSlots:{3,3:###} PLockers:{4,3:###} Dismounts:{5,3:###} Distance:{6,4:####}",
                 Value,
                 RegularBoxes,
                 CentralizedBoxes,
@@ -82,7 +82,8 @@ namespace RuralAdjuster.DataModel
                 DismountDistance,
                 SourceRoute == DestinationRoute ? "  " : prefix,
                 SourceRoute.ToString(),
-                DestinationRoute.ToString());
+                DestinationRoute.ToString(),
+                this.Comment);
         }
     }
 }

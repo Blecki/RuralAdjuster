@@ -37,7 +37,7 @@
             this.routeEdit1.Location = new System.Drawing.Point(0, 0);
             this.routeEdit1.Name = "routeEdit1";
             this.routeEdit1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.routeEdit1.Size = new System.Drawing.Size(846, 517);
+            this.routeEdit1.Size = new System.Drawing.Size(846, 556);
             this.routeEdit1.TabIndex = 0;
             this.routeEdit1.OnCloseClicked += new System.EventHandler<System.EventArgs>(this.routeEdit1_OnCloseClicked);
             // 
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 517);
+            this.ClientSize = new System.Drawing.Size(846, 556);
             this.Controls.Add(this.routeEdit1);
             this.Name = "RouteModal";
             this.Text = "RouteModal";
