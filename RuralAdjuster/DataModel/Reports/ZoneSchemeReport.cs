@@ -44,12 +44,17 @@ namespace RuralAdjuster.DataModel.Reports
             {
                 builder.Append("\n" + pair.Key + "\n");
                 foreach (var SchemeEntry in pair.Value)
-                    builder.AppendFormat("{0} Low: {1} High: {2} {3} Box Count: {4}\n",
-                        SchemeEntry.StreetName,
+                {
+                    var streetName = SchemeEntry.StreetName;
+                    if (streetName.Length > 50) streetName = streetName.Substring(0, 50);
+                    else if (streetName.Length < 50) streetName = streetName + new String(' ', 50 - streetName.Length);
+                    builder.AppendFormat("{0}\t Low:\t {1}\t High:\t {2}\t {3}\t Box Count:\t {4}\n",
+                        streetName,
                         SchemeEntry.Low,
                         SchemeEntry.High,
                         SchemeEntry.SequenceType,
                         SchemeEntry.BoxCount);
+                }
             }
             return builder.ToString();
         }
