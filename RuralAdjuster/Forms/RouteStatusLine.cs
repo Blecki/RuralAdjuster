@@ -13,6 +13,7 @@ namespace RuralAdjuster.Forms
     {
         public DataModel.Route Route;
         public DataModel.Zone Zone;
+        public ZoneEdit ZoneEdit;
 
         public RouteStatusLine()
         {
@@ -48,7 +49,7 @@ namespace RuralAdjuster.Forms
         {
             var modal = new RouteModal(Zone, Route);
             modal.ShowDialog();
-            RefreshData();
+            ZoneEdit.RebuildRouteStatus();
         }
     }
 }

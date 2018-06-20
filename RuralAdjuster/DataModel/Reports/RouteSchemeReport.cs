@@ -23,7 +23,7 @@ namespace RuralAdjuster.DataModel.Reports
                 builder.Append("\n[" + Segment.Comment + "]\n");
                 foreach (var SchemeEntry in Segment.Scheme)
                 {
-                    builder.AppendFormat("{0}\t Low: {1}\t High: {2}\t {3}\t Box Count: {4}\n",
+                    builder.AppendFormat("{0}, {1}, {2}, {3}, {4}\n",
                         SchemeEntry.StreetName,
                         SchemeEntry.Low,
                         SchemeEntry.High,

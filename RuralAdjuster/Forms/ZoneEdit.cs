@@ -33,6 +33,7 @@ namespace RuralAdjuster.Forms
                 var entry = new RouteStatusLine();
                 entry.SetRoute(Zone, route);
                 entry.Dock = DockStyle.Top;
+                entry.ZoneEdit = this;
                 this.pRouteStatus.Controls.Add(entry);
             }
             this.ResumeLayout();
